@@ -22,23 +22,25 @@ client.on('message', msg=>{
     let lastWordArr = lastWordStr.split('');
     if(lastWordArr[lastWordArr.length - 1] == '?') {
         if(swearjar.profane(msg.content) == false) {
-            msg.channel.send(`Your request has been placed in a queue (don't worry it's normally only a few seconds 😉)`)
+            msg.channel.send(`Let me think about that one for a second... 🤔`)
                 .then(message => {
                     message.delete({ timeout: 3000 })
                 }).catch(console.error);
-            waApi.getSimple({i: msg.content, background: '2F3136', foreground: 'white', fontsize: '16'}).then((queryresult) => {
+            waApi.getSimple({i: msg.content, background: '2F3136', foreground: 'white', fontsize: '22', width: '1600'}).then((queryresult) => {
                 ImageDataURI.outputFile(queryresult, imagePath)
-                console.log('Image Saved')
-                let output = new Discord.MessageEmbed()
-                .setTitle(msg.content)
-                .setColor('2F3136')
-                .attachFiles(['./images/wolf.gif'])
-                .setImage('attachment://wolf.gif')
-                .setFooter('This message will auto-delete in 60 seconds');
-                msg.channel.send(output)
-                .then(message => {
-                    message.delete({ timeout: 60000 })
-                }).catch(console.error);
+                    .then(res =>{
+                        console.log('Image Saved')
+                        let output = new Discord.MessageEmbed()
+                            .setTitle(msg.content)
+                            .setColor('2F3136')
+                            .attachFiles(['./images/wolf.gif'])
+                            .setImage('attachment://wolf.gif')
+                            .setFooter('This message will auto-delete in 60 seconds');
+                        msg.channel.send(output)
+                            .then(message => {
+                                message.delete({ timeout: 60000 })
+                            }).catch(console.error);
+                    })
               }).catch(console.error);
         } else {
             msg.channel.send(`⛔ Sorry please don't use profanity in your questions.`)
