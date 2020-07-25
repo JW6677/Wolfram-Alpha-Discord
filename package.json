@@ -1,0 +1,26 @@
+{
+  "name": "Wolfram-Alpha-Discord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JW6677/Wolfram-Alpha-Discord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JW6677/Wolfram-Alpha-Discord/issues"
+  },
+  "homepage": "https://github.com/JW6677/Wolfram-Alpha-Discord#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "image-data-uri": "^2.0.1",
+    "swearjar": "^0.2.0",
+    "wolfram-alpha-api": "https://products.wolframalpha.com/api/libraries/javascript/wolfram-alpha-api-1.0.0-rc.1.tgz"
+  }
+}
